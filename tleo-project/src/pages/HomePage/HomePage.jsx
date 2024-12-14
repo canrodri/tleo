@@ -1,9 +1,13 @@
 import React from 'react';
 import PopularBooksCarousel from './components/PopularBooksCarousel.jsx';
+import PopularBooksGenre from './components/PopularBooksGenre.jsx';
+import Header from "../../components/Header";
+import Footer from '../../components/Footer';
 
 const HomePage = () => {
     return (
       <div>
+                    <Header />
 <div className="slide" style={{ padding:'40px 70px' }}>
     <div className="row">
 
@@ -73,6 +77,11 @@ const HomePage = () => {
   <PopularBooksCarousel />
   </div>
 
+  <div className="genres">
+  <h1 style={{ fontSize: '35px', color: '#2F2F2F', fontWeight: '500', padding:'50px 0px 50px 0px' }}>Buscar por género</h1>
+  <PopularBooksGenre />
+  </div>
+  <Footer /> 
       </div>
     );
   };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -16,9 +17,9 @@ const Footer = () => {
           <li><a href="#" className="text-white">Información</a></li>
           <li><a href="#" className="text-white">Artículos</a></li>
           <li><a href="#" className="text-white">Sobre nosotros</a></li>
-          <li><a href="#" className="text-white">Política de privacidad</a></li>
-          <li><a href="#" className="text-white">Política de Cookies</a></li>
-          <li><a href="#" className="text-white">Términos y Condiciones</a></li>
+          <li><Link to="/cookies-policy">Política de Cookies</Link></li>
+          <li><Link to="/privacy-policy">Política de Privacidad</Link></li>
+          <li><Link to="/terms-us">Términos de uso</Link></li>
         </ul>
       </div>
 
@@ -26,7 +27,7 @@ const Footer = () => {
       <h5 style={{ fontSize: '14px', color: '#D4AF37', fontWeight: '200' }}>ENLACES ÚTILES</h5>
         <ul className="list-unstyled footer-list">
           <li><a href="#" className="text-white">Apoyo</a></li>
-          <li><a href="#" className="text-white">Contacto</a></li>
+          <li><Link to="/contact-page">Contacto</Link></li>
         </ul>
       </div>
 

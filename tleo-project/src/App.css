@@ -2,6 +2,8 @@
   font-family: 'Poppins', sans-serif;
 }
 
+
+
 /*CSS HEADER*/
 .bg-custom-header {
   background-color: #D4AF37 !important;
@@ -21,6 +23,11 @@ input::placeholder {
 }
 
 /*CSS FOOTER*/
+
+footer a {
+  color: white; 
+  text-decoration: none; 
+}
 
 .bg-custom-footer {
   background-color: #2F2F2F !important;
@@ -73,3 +80,68 @@ footer{
 .carousel-libros{
   padding:50px 0px 0px 30px;
 }
+
+/*CSS CUADRANTE GENRE*/
+
+.genre-card {
+  position: relative;
+  width: 100%;
+  height: 200px;  
+  border-radius: 8px;
+  overflow: hidden;
+  background-color:black; 
+}
+
+.genre-card img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3; 
+
+}
+
+.genre-card .genre-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;  
+  color: white;
+  font-weight: bold;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  
+  gap: 10px;
+  padding: 20px;
+}
+
+@media (max-width: 1200px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);  
+  }
+}
+
+@media (max-width: 800px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);  
+  }
+}
+
+@media (max-width: 500px) {
+  .grid-container {
+    grid-template-columns: 1fr;  
+  }
+}
+
+.genres{
+  background-color:#F5F5F5;
+  padding: 50px 40px 100px 40px;
+}
+
+
+/*CSS CUADRANTE GENRE*/
