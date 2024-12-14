@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
+// import { useState } from 'react';
+// import Header from './components/Header';
+// import Footer from './components/Footer';
 import HomePage from './pages/HomePage/HomePage.jsx';
 import CookiesPolicy from './pages/Policies/CookiesPolicy.jsx'; 
 import PrivacyPolicy from './pages/Policies/PrivacyPolicy.jsx'; 
@@ -17,16 +17,15 @@ function App() {
     <BrowserRouter> 
       <Routes>
         <Route path="/" element={ 
-          <> 
             <HomePage />
-          </> 
         } />
         <Route path="/cookies-policy" element={<CookiesPolicy />} /> 
         <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
         <Route path="/terms-us" element={<TermsUs />} /> 
         <Route path="/contact-page" element={<ContactPage />} /> 
         <Route path="/home" element={<HomePage />} /> 
-        <Route path="/login-page" element={<LoginPage />} /> 
+        <Route path="/login-page" element={<LoginPage />} />
+        <Route path="/RegisterPage" element={<RegisterPage />} />
       </Routes>
     </BrowserRouter>
   );
