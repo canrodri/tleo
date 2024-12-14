@@ -5,7 +5,6 @@ function AboutUsPage({ className = "" }) {
   return (
     <div>
       <Header />
-
       <div
         className={`container-md pt-5 pr-4 pb-4 pl-5 border rounded bg-light shadow ${className}`}
       >
