@@ -64,7 +64,7 @@ function Header() {
           </li>
           <div className="border-left mx-3" style={{ height: '30px', borderLeft: '2px solid #2f2f2f', alignSelf: 'center' }}></div>
           <li className="nav-item">
-            <a className="nav-link" href="#">Registrarse</a>
+            <a className="nav-link" href="/RegisterPage">Registrarse</a>
           </li>
         </ul>
       </div>

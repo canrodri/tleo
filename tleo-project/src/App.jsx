@@ -11,6 +11,7 @@ import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './App.css'
+import RegisterPage from './pages/RegisterPage/RegisterPage.jsx';
 
 function App() {
   return (

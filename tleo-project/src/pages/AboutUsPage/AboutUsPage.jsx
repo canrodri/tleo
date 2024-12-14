@@ -1,17 +1,25 @@
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+
 function AboutUsPage({ className = "" }) {
-    return (
-      <div className={`container-md pt-5 pr-4 pb-4 pl-5 border rounded bg-light shadow ${className}`}>
+  return (
+    <div>
+      <Header />
+
+      <div
+        className={`container-md pt-5 pr-4 pb-4 pl-5 border rounded bg-light shadow ${className}`}
+      >
         <h1 className="text-center">Sobre Nosotros</h1>
         <p className="mt-5">
           En Tleo, somos amantes de las palabras, exploradores de mundos
           imaginarios y acumuladores compulsivos de libros. Nuestro propósito es
-          sencillo: crear el rincón perfecto donde lectores y libros encuentren su
-          destino.
+          sencillo: crear el rincón perfecto donde lectores y libros encuentren
+          su destino.
         </p>
         <h2 className="text-center">Nuestro Equipo</h2>
         <p className="py-3">
-          Somos un grupo diverso de lectores empedernidos, programadores creativos
-          y obsesivos del diseño. Aquí hay un vistazo rápido:
+          Somos un grupo diverso de lectores empedernidos, programadores
+          creativos y obsesivos del diseño. Aquí hay un vistazo rápido:
         </p>
         <ul className="list-unstyled">
           <li>
@@ -42,8 +50,9 @@ function AboutUsPage({ className = "" }) {
           ¿Listo para sumergirte en una nueva aventura literaria?
         </p>
       </div>
-    );
-  }
-  
-  export default AboutUsPage;
-  
+      <Footer />
+    </div>
+  );
+}
+
+export default AboutUsPage;
