@@ -1,5 +1,7 @@
 import React from 'react';
 import PopularBooksCarousel from './components/PopularBooksCarousel.jsx';
+import PopularBooksCarousel2 from './components/PopularBooksCarousel2.jsx';
+import PopularBooksCarousel3 from './components/PopularBooksCarousel3.jsx';
 import PopularBooksGenre from './components/PopularBooksGenre.jsx';
 import Header from "../../components/Header";
 import Footer from '../../components/Footer';
@@ -32,8 +34,9 @@ const HomePage = () => {
   </li>
 </ul>
 
-        <button 
-    className="btn btn-primary mt-4" 
+<a href="/RegisterPage" style={{ textDecoration: 'none' }}>
+  <button
+    className="btn btn-primary mt-4"
     style={{
       backgroundColor: '#2F2F2F',
       border: 'none',
@@ -47,6 +50,8 @@ const HomePage = () => {
   >
     REGÍSTRATE AHORA
   </button>
+</a>
+
       </div>
 
       <div className="col-md-6 d-flex justify-content-center align-items-center">
@@ -68,13 +73,13 @@ const HomePage = () => {
   <div className="carousel-libros">
       <h1 style={{ fontSize: '35px', color: '#2F2F2F', fontWeight: '500' }}>Los libros más vendidos <i class="bi bi-arrow-up-right-square"></i></h1>
       <p style={{ color: '#2F2F2F', fontWeight: '400' }}>Libros más leídos de todos los tiempos</p>
-  <PopularBooksCarousel />
+  <PopularBooksCarousel2 />
   </div>
 
   <div className="carousel-libros">
       <h1 style={{ fontSize: '35px', color: '#2F2F2F', fontWeight: '500' }}>Top libros pendientes <i class="bi bi-arrow-up-right-square"></i></h1>
       <p style={{ color: '#2F2F2F', fontWeight: '400' }}>Libros más añadidos a pendientes por los usuarios</p>
-  <PopularBooksCarousel />
+  <PopularBooksCarousel3 />
   </div>
 
   <div className="genres">

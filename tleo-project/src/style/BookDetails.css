@@ -1,0 +1,125 @@
+/* Contenedor principal */
+.book-details-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 80%;
+    margin: 2rem auto;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  /* Estilo para la portada */
+  .book-cover img {
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Contenedor de información */
+  .book-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .book-info h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .book-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    color: #555;
+  }
+  
+  .book-info strong {
+    color: #222;
+  }
+  
+  /* Efectos para mejorar la apariencia */
+  .book-details-container:hover {
+    transform: scale(1.02);
+    transition: 0.3s ease;
+  }
+  
+  /* Botones de estado */
+.book-status {
+    margin-top: 1.5rem;
+  }
+  
+  .status-btn {
+    padding: 0.8rem 1.5rem;
+    margin-right: 1rem;
+    background: #eee;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .status-btn.active {
+    background: #d4af37;
+    color: white;
+    border-color: #d4af37;
+  }
+  
+  .status-btn:hover {
+    background: #ddd;
+  }
+  
+  /* Sistema de calificación */
+  .book-rating {
+    margin-top: 1.5rem;
+  }
+  
+  .book-rating .star {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .book-rating .star.selected {
+    color: #d4af37;
+  }
+  
+  .book-rating .star:hover {
+    color: #d4af37;
+  }
+  
+
+  /* Botón de añadir a la lista */
+.add-to-library {
+    margin-top: 1.5rem;
+  }
+  
+  .add-btn {
+    padding: 0.8rem 1.5rem;
+    background: #8b0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .add-btn:hover {
+    background: #8b0000;
+  }
+
+  /* Estilo para el botón deshabilitado */
+.add-btn:disabled {
+    background-color: #b0bec5;
+    cursor: not-allowed;
+  }
+  
+  
