@@ -2,9 +2,18 @@
   font-family: 'Poppins', sans-serif;
 }
 
-
+a {
+  text-decoration:none!important;
+}
 
 /*CSS HEADER*/
+
+.dropdown-menu .dropdown-item:active,
+.dropdown-menu .dropdown-item:focus {
+  background-color: #8b2013;  /* Cambia este color por el que prefieras */
+  color: white;  /* Cambia el color del texto si es necesario */
+}
+
 .bg-custom-header {
   background-color: #D4AF37 !important;
 }
@@ -43,6 +52,28 @@ footer{
 
 /*CSS HOME*/
 
+.slick-prev, .slick-next {
+  background-color: #ffffff;  /* Fondo oscuro para las flechas */
+  color: #ffffff;  /* Color blanco para las flechas */
+  border-radius: 50%;  /* Flechas redondeadas */
+  padding: 10px;
+}
+
+.slick-prev:hover, .slick-next:hover {
+  background-color: #ffffff;  /* Efecto hover */
+}
+
+.slick-prev::before, .slick-next::before {
+  font-family: 'slick';
+  font-size: 20px;
+  line-height: 1;
+  opacity: .75;
+  color: #8b2013;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
 .slide{
   background-color: #F5F5DC;
 }
@@ -70,6 +101,7 @@ footer{
 .book-card h4 {
   font-size: 16px;
   font-weight: bold;
+  color: #8b0000;
 }
 
 .book-card p {
@@ -143,5 +175,6 @@ footer{
   padding: 50px 40px 100px 40px;
 }
 
-
-/*CSS CUADRANTE GENRE*/
+.dropdown-menu.genres-menu.show{
+  width: 500px;
+}

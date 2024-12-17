@@ -8,7 +8,13 @@ const Footer = () => {
     <div className="row">
 
       <div className="col-md-2">
-        <img src="/src/assets/img/tleo-logo-2.png" width="123" height="54" alt="TLeo logo" />
+      <a href="/home" rel="noopener noreferrer">
+  <img
+    src="    /src/assets/img/tleo-logo-2.png"
+    alt="Descripción de la imagen"
+    style={{ width: '150px', height: 'auto' }} 
+  />
+</a>
       </div>
 
       <div className="col-md-2">

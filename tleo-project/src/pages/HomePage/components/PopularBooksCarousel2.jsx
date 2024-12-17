@@ -8,7 +8,7 @@ function PopularBooksCarousel() {
 
   useEffect(() => {
     axios
-      .get("https://www.googleapis.com/books/v1/volumes?q=newest")
+      .get("https://www.googleapis.com/books/v1/volumes?q=bestsellers")
       .then((response) => setBooks(response.data.items || []))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -20,11 +20,7 @@ function PopularBooksCarousel() {
     centerPadding: "60px",
     slidesToShow: 3,
     speed: 500,
-    arrows: true,
-    prevArrow: <button className="prev-arrow">Prev</button>,
-    nextArrow: <button className="next-arrow">Next</button>,
   };
-  
 
   return (
     <div className="slider-container">
