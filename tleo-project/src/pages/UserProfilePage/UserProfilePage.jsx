@@ -4,7 +4,6 @@ import Footer from "../../components/Footer";
 import axios from "axios";
 import Slider from "react-slick";
 
-// Asegúrate de importar el CSS necesario para slick-carousel
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -47,7 +46,7 @@ const UserProfilePage = () => {
 
   const settings = {
     infinite: true,
-    slidesToShow: 3, // Mostrar 3 cards
+    slidesToShow: 3, 
     slidesToScroll: 1,
     speed: 500,
     arrows: true,
