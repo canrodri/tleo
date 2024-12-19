@@ -58,9 +58,18 @@ const UserProfilePage = () => {
   return (
     <div>
       <Header />
-      <div style={{ padding: "50px", backgroundColor:"#f9f9f9" }}>
+      <div style={{ padding: "50px", backgroundColor: "#f9f9f9" }}>
         <div className="formulario-especifico">
-          <h2>Perfil de Usuario</h2>
+       
+          <img 
+          src="https://img.freepik.com/vector-gratis/hombre-estudiando-leccion-ilustracion-aislado_24911-115021.jpg?t=st=1734635265~exp=1734638865~hmac=5d99e9e78e2b59e5d50b02ff03af49c208998baf00e1ed90da2da8eee7907fd0&w=740"
+          style={{ 
+            width: "150px", 
+            height: "150px", 
+            objectFit: "cover",
+            borderRadius:"50%" 
+            }}/>
+             <h2>Perfil de Usuario</h2>
           {userData && (
             <>
               <p>
