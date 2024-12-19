@@ -27,7 +27,7 @@ const ContactPage = () => {
     if (formData.email === 'pepe@example.com' && formData.password === '1234') {
       // Si las credenciales son correctas, guardamos el usuario en el estado local
       setLoggedIn(true);
-      navigate("/user-profile", {state: {user: formData}})
+      navigate("/user-profile")
       
     } else {
       alert("Usuario o contraseña incorrectos.");

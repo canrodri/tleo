@@ -1,38 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import axios from "axios";
+import Slider from "react-slick";
+
+// Asegúrate de importar el CSS necesario para slick-carousel
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const UserProfilePage = () => {
-  const location = useLocation();
-  const { user } = location.state || {}; // Obtenemos el email desde el estado de navegación
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Función para obtener los datos del usuario
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('/data.json'); // Accedemos al archivo JSON
+        // Carga el archivo JSON
+        const response = await axios.get("/data.json");
         const userFromJson = response.data.user;
 
-        // Validar si el email coincide con el del usuario logueado
-        if (user && userFromJson.email === user.email) {
+        // buscamos al usuario
+        if (userFromJson.email === "pepe@example.com") {
           setUserData(userFromJson);
         } else {
-          setError('Usuario no encontrado.');
+          setError("Usuario no encontrado.");
         }
       } catch (err) {
-        setError('Error al cargar los datos del usuario.');
+        console.error("Error al cargar el archivo JSON:", err);
+        setError("Error al cargar los datos del usuario.");
       } finally {
         setLoading(false);
       }
     };
 
     fetchUserData();
-  }, [user]);
+  }, []);
 
   if (loading) {
     return <p>Cargando datos del usuario...</p>;
@@ -42,31 +45,77 @@ const UserProfilePage = () => {
     return <p>{error}</p>;
   }
 
+  const settings = {
+    infinite: true,
+    slidesToShow: 3, // Mostrar 3 cards
+    slidesToScroll: 1,
+    speed: 500,
+    arrows: true,
+    prevArrow: <button className="prev-arrow">Prev</button>,
+    nextArrow: <button className="next-arrow">Next</button>,
+  };
+
   return (
     <div>
       <Header />
-      <div style={{ padding: '50px' }}>
-        <h2>Perfil de Usuario</h2>
-        {userData && (
-          <>
-            <p><strong>Nombre:</strong> {userData.name} {userData.lastName}</p>
-            <p><strong>Email:</strong> {userData.email}</p>
+      <div style={{ padding: "50px", backgroundColor:"#f9f9f9" }}>
+        <div className="formulario-especifico">
+          <h2>Perfil de Usuario</h2>
+          {userData && (
+            <>
+              <p>
+                <strong>Nombre:</strong> {userData.name} {userData.lastName}
+              </p>
+              <p>
+                <strong>Email:</strong> {userData.email}
+              </p>
+            </>
+          )}
+        </div>
 
-            <h3>Libros leídos:</h3>
-            <ul>
-              {userData.booksRead.map((book, index) => (
-                <li key={index}>{book.title} - {book.author} ({book.year})</li>
-              ))}
-            </ul>
+        {/* Libros leídos */}
+        <div className="carousel-libros">
+          <h1>Libros Leídos</h1>
+          <Slider {...settings}>
+            {userData.booksRead.map((book, index) => (
+              <div className="book-card" key={index}>
+                <div className="book-img-wrapper">
+                  <img
+                    src={book.coverImage}
+                    className="book-img"
+                    alt={book.title}
+                  />
+                </div>
+                <div className="card-body">
+                  <h4 className="book-title">{book.title}</h4>
+                  <p className="book-authors">{book.author}</p>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
 
-            <h3>Libros por leer:</h3>
-            <ul>
-              {userData.booksToRead.map((book, index) => (
-                <li key={index}>{book.title} - {book.author} ({book.year})</li>
-              ))}
-            </ul>
-          </>
-        )}
+        {/* Libros por leer */}
+        <div className="carousel-libros">
+          <h1>Libros por Leer</h1>
+          <Slider {...settings}>
+            {userData.booksToRead.map((book, index) => (
+              <div className="book-card" key={index}>
+                <div className="book-img-wrapper">
+                  <img
+                    src={book.coverImage}
+                    className="book-img"
+                    alt={book.title}
+                  />
+                </div>
+                <div className="card-body">
+                  <h4 className="book-title">{book.title}</h4>
+                  <p className="book-authors">{book.author}</p>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
       <Footer />
     </div>

@@ -20,12 +20,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';  
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useState } from 'react';
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage.jsx';
+import AboutUsPage from './pages/AboutUsPage/AboutUsPage.jsx';
 
 function App() {
 
-  const [user, setUser] = useState(null)
 
   return (
     <BrowserRouter> 
@@ -35,13 +34,13 @@ function App() {
         } />
         <Route path="/cookies-policy" element={<CookiesPolicy />} /> 
         <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
-        {/* <Route path="/about-us" element={<AboutUsPage />} />  */}
+        <Route path="/about-us" element={<AboutUsPage />} /> 
         <Route path="/terms-us" element={<TermsUs />} /> 
-        <Route path="/contact-page" element={<ContactPage setUser={setUser}/>} /> 
+        <Route path="/contact-page" element={<ContactPage />} /> 
         <Route path="/home" element={<HomePage />} /> 
         <Route path="/login-page" element={<LoginPage setUser={FormData}/>} />
-        <Route path="/RegisterPage" element={<RegisterPage user={user} />} />
-        <Route path="/user-profile" element={<UserProfilePage user={user} />} />
+        <Route path="/RegisterPage" element={<RegisterPage  />} />
+        <Route path="/user-profile" element={<UserProfilePage  />} />
         <Route path="/Tendencies" element={<Tendencies />} />
         <Route path="/Added" element={<Added />} />
         <Route path="/most-read" element={<MostRead />} />

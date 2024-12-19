@@ -6,7 +6,7 @@ function AboutUsPage({ className = "" }) {
     <div>
       <Header />
       <div
-        className={`container-md pt-5 pr-4 pb-4 pl-5 border rounded bg-light shadow ${className}`}
+        className="formulario-especifico"
       >
         <h1 className="text-center">Sobre Nosotros</h1>
         <p className="mt-5">
