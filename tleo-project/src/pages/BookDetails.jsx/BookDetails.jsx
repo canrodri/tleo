@@ -19,7 +19,7 @@ function BookDetails() {
       .then((response) => setBook(response.data))
       .catch((error) => console.error("Error fetching book details:", error));
   }, [id]);
-
+    
   const handleRating = (value) => setRating(value);
 
   const AddToLibraryList = () => {

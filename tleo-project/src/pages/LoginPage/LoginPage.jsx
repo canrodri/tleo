@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import Header from "../../components/Header";
 import Footer from '../../components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: '',
+    password: '',
     acceptPolicies: false,
   });
+  const [loggedIn, setLoggedIn] = useState(false);
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -20,11 +23,15 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.acceptPolicies) {
-      alert('Debes aceptar las políticas de privacidad y los términos para enviar el formulario.');
-      return;
+    // Simulación de validación de usuario y contraseña
+    if (formData.email === 'pepe@example.com' && formData.password === '1234') {
+      // Si las credenciales son correctas, guardamos el usuario en el estado local
+      setLoggedIn(true);
+      navigate("/user-profile", {state: {user: formData}})
+      
+    } else {
+      alert("Usuario o contraseña incorrectos.");
     }
-    console.log('Formulario enviado:', formData);
   };
 
   return (
@@ -34,12 +41,12 @@ const ContactPage = () => {
         <h2 style={{ textAlign:'center', padding:'0px 0px 50px 0px' }}>Inicia sesión con tu cuenta de usuario</h2>
         <form className="formulario-especifico" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="name">Usuario:</label>
+            <label htmlFor="email">Usuario:</label>
             <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
               onChange={handleChange}
               required
             />
@@ -59,7 +66,7 @@ const ContactPage = () => {
 
           <button type="submit">Enviar</button>
         </form>
-      </div>
+       </div>
       <Footer />
     </div>
   );

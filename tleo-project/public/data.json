@@ -1,0 +1,88 @@
+{
+    "user": {
+      "email": "pepe@example.com",
+      "name": "Pepe",
+      "lastName": "Gómez",
+      "password":"1234",
+      "booksRead": [
+        {
+          "title": "El problema de los tres cuerpos",
+          "author": "Cixin Liu",
+          "year": 2020
+        },
+        {
+          "title": "La Sombra del Viento",
+          "author": "Carlos Ruiz Zafón",
+          "year": 2021
+        },
+        {
+          "title": "Los Siete Maridos de Evelyn Hugo",
+          "author": "Taylor Jenkins Reid",
+          "year": 2022
+        },
+        {
+          "title": "La Biblioteca de la Medianoche",
+          "author": "Matt Haig",
+          "year": 2021
+        },
+        {
+          "title": "Una Educación",
+          "author": "Tara Westover",
+          "year": 2020
+        },
+        {
+          "title": "Donde los Árboles Cantan",
+          "author": "Laura Gallego",
+          "year": 2021
+        },
+        {
+          "title": "El infinito en un junco",
+          "author": "Irene Vallejo",
+          "year": 2020
+        },
+        {
+          "title": "La Puerta de los Tres Cerrojos",
+          "author": "Sonia Fernández-Vidal",
+          "year": 2022
+        },
+        {
+          "title": "Matar a un ruiseñor",
+          "author": "Harper Lee",
+          "year": 2021
+        },
+        {
+          "title": "Las Tinieblas y el Alba",
+          "author": "Ken Follett",
+          "year": 2020
+        }
+      ],
+      "booksToRead": [
+        {
+          "title": "Proyecto Hail Mary",
+          "author": "Andy Weir",
+          "year": 2021
+        },
+        {
+          "title": "El Instituto",
+          "author": "Stephen King",
+          "year": 2021
+        },
+        {
+          "title": "Violeta",
+          "author": "Isabel Allende",
+          "year": 2022
+        },
+        {
+          "title": "Klara y el Sol",
+          "author": "Kazuo Ishiguro",
+          "year": 2021
+        },
+        {
+          "title": "El Hombre Ilustrado",
+          "author": "Ray Bradbury",
+          "year": 2021
+        }
+      ]
+    }
+  }
+  

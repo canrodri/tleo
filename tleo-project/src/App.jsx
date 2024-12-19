@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import { useState } from 'react';
 // import Header from './components/Header';
 // import Footer from './components/Footer';
 import HomePage from './pages/HomePage/HomePage.jsx';
@@ -21,8 +20,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';  
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useState } from 'react';
+import UserProfilePage from './pages/UserProfilePage/UserProfilePage.jsx';
 
 function App() {
+
+  const [user, setUser] = useState(null)
+
   return (
     <BrowserRouter> 
       <Routes>
@@ -31,11 +35,13 @@ function App() {
         } />
         <Route path="/cookies-policy" element={<CookiesPolicy />} /> 
         <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
+        {/* <Route path="/about-us" element={<AboutUsPage />} />  */}
         <Route path="/terms-us" element={<TermsUs />} /> 
-        <Route path="/contact-page" element={<ContactPage />} /> 
+        <Route path="/contact-page" element={<ContactPage setUser={setUser}/>} /> 
         <Route path="/home" element={<HomePage />} /> 
-        <Route path="/login-page" element={<LoginPage />} />
-        <Route path="/RegisterPage" element={<RegisterPage />} />
+        <Route path="/login-page" element={<LoginPage setUser={FormData}/>} />
+        <Route path="/RegisterPage" element={<RegisterPage user={user} />} />
+        <Route path="/user-profile" element={<UserProfilePage user={user} />} />
         <Route path="/Tendencies" element={<Tendencies />} />
         <Route path="/Added" element={<Added />} />
         <Route path="/most-read" element={<MostRead />} />

@@ -22,7 +22,7 @@ const Footer = () => {
         <ul className="list-unstyled footer-list">
           <li><a href="#" className="text-white">Información</a></li>
           <li><a href="#" className="text-white">Artículos</a></li>
-          <li><a href="#" className="text-white">Sobre nosotros</a></li>
+          <li><Link to="/about-us">Sobre Nosotros</Link></li>
           <li><Link to="/cookies-policy">Política de Cookies</Link></li>
           <li><Link to="/privacy-policy">Política de Privacidad</Link></li>
           <li><Link to="/terms-us">Términos de uso</Link></li>
