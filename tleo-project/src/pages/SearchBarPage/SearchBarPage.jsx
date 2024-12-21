@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import BookDetails from '../BookDetails/BookDetails';  // Importamos BookDetails
+import BookDetails from '../BookDetails/BookDetails';  
+import axios from 'axios';
 
 const SearchPage = () => {
   const [bookId, setBookId] = useState(null);
@@ -18,10 +19,10 @@ const SearchPage = () => {
     const fetchBooks = async () => {
       setLoading(true);
       try {
-        const response = await fetch(
+        const response = await axios.get(
           `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}`
         );
-        const data = await response.json();
+        const data =  response.data;
         const firstBook = data.items?.[0]; // Tomamos el primer libro
 
         if (firstBook) {
