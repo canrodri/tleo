@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
+
 function Header() {
+    const [searchQuery, setSearchQuery] = useState('');
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-custom-header" style={{ padding: '10px 20px' }}>
             <a className="navbar-brand" href="/home">
@@ -91,39 +95,40 @@ function Header() {
                 </ul>
 
                 <form
-                    className="form-inline my-2 my-lg-0"
-                    onSubmit={(e) => {
-                        e.preventDefault();
-                        const query = e.target.search.value;
-                        console.log('Búsqueda:', query);
-                    }}
-                >
-                    <div className="input-group">
-                        <div className="input-group-prepend">
-                            <span
-                                className="input-group-text"
-                                style={{ backgroundColor: 'transparent', border: 'none' }}
-                            >
-                                <i className="bi bi-search"></i>
-                            </span>
-                        </div>
-                        <input
-                            name="search"
-                            className="form-control w-auto"
-                            type="search"
-                            placeholder="Buscar"
-                            aria-label="Search"
-                            style={{
-                                backgroundColor: 'transparent',
-                                border: 'none',
-                                borderBottom: '1px solid #2f2f2f',
-                                outline: 'none',
-                                borderRadius: '0px',
-                                boxShadow: 'none',
-                            }}
-                        />
-                    </div>
-                </form>
+    className="form-inline my-2 my-lg-0"
+    onSubmit={(e) => {
+        e.preventDefault();
+        window.location.href = `/search?q=${searchQuery}`;
+    }}
+>
+    <div className="input-group">
+        <div className="input-group-prepend">
+            <span
+                className="input-group-text"
+                style={{ backgroundColor: 'transparent', border: 'none' }}
+            >
+                <i className="bi bi-search"></i>
+            </span>
+        </div>
+        <input
+            name="search"
+            className="form-control w-auto"
+            type="search"
+            placeholder="Buscar"
+            aria-label="Search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            style={{
+                backgroundColor: 'transparent',
+                border: 'none',
+                borderBottom: '1px solid #2f2f2f',
+                outline: 'none',
+                borderRadius: '0px',
+                boxShadow: 'none',
+            }}
+        />
+    </div>
+</form>
             </div>
 
             <div className="ml-auto d-flex align-items-center">

@@ -22,6 +22,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage.jsx';
 import AboutUsPage from './pages/AboutUsPage/AboutUsPage.jsx';
+import SearchPage from './pages/SearchBarPage/SearchBarPage.jsx';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
         <Route path="/most-read" element={<MostRead />} />
         <Route path="/book/:id" element={<BookDetails />} />
         <Route path="/genre/:genre" element={<GenrePage />} />
+        <Route path="/search" element={<SearchPage />} />
       </Routes>
     </BrowserRouter>
   );

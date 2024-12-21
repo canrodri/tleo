@@ -1,58 +1,53 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
-import axios from 'axios';
+import BookDetails from '../BookDetails/BookDetails';  // Importamos BookDetails
 
-const SearchResultsPage = () => {
-    const location = useLocation();
-    const query = new URLSearchParams(location.search).get('q');
-    const [books, setBooks] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+const SearchPage = () => {
+  const [bookId, setBookId] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
 
-    useEffect(() => {
-        const fetchBooks = async () => {
-            if (!query) return;
-            setLoading(true);
-            try {
-                const response = await axios.get(
-                    `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}`
-                );
-                setBooks(response.data.items || []);
-            } catch (err) {
-                console.error('Error fetching books:', err);
-                setError('No se pudieron cargar los resultados de búsqueda.');
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchBooks();
-    }, [query]);
+  // Obtenemos la query de búsqueda desde la URL
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search).get('q');
+    setSearchQuery(query || ''); // Si no hay query, dejamos la búsqueda vacía.
+  }, []);
 
-    if (loading) return <p>Cargando resultados...</p>;
-    if (error) return <p>{error}</p>;
+  useEffect(() => {
+    if (!searchQuery) return;
 
-    return (
-        <div style={{ backgroundColor: '#f9f9f9', padding: '20px' }}>
-            <h2>Resultados de búsqueda para: "{query}"</h2>
-            <div className="book-results">
-                {books.map((book) => (
-                    <div key={book.id} className="book-card">
-                        <Link to={`/book/${book.id}`}>
-                            <img
-                                src={
-                                    book.volumeInfo.imageLinks?.thumbnail ||
-                                    'https://via.placeholder.com/128x190?text=Sin+Imagen'
-                                }
-                                alt={book.volumeInfo.title}
-                            />
-                            <h3>{book.volumeInfo.title}</h3>
-                        </Link>
-                        <p>{book.volumeInfo.authors?.join(', ') || 'Autor desconocido'}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
+    const fetchBooks = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(
+          `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}`
+        );
+        const data = await response.json();
+        const firstBook = data.items?.[0]; // Tomamos el primer libro
+
+        if (firstBook) {
+          setBookId(firstBook.id); // Guardamos el ID del primer libro
+        } else {
+          setBookId(null); // Si no se encuentran resultados
+        }
+      } catch (error) {
+        console.error('Error fetching books:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBooks();
+  }, [searchQuery]);
+
+  if (loading) {
+    return <p>Cargando...</p>;
+  }
+
+  if (!bookId) {
+    return <p>No se encontraron libros para la búsqueda {searchQuery}.</p>;
+  }
+
+  return <BookDetails id={bookId} />;
 };
 
-export default SearchResultsPage;
+export default SearchPage;

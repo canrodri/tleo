@@ -5,8 +5,8 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import "../../style/BookDetails.css";
 
-function BookDetails() {
-  const { id } = useParams();
+function BookDetails({ id }) {
+ 
   const [book, setBook] = useState(null);
   const [isRead, setIsRead] = useState(false);
   const [isPending, setIsPending] = useState(false);
@@ -14,6 +14,7 @@ function BookDetails() {
   const [isAdded, setIsAdded] = useState(false); // Estado para el botón de añadir
 
   useEffect(() => {
+    if(id)
     axios
       .get(`https://www.googleapis.com/books/v1/volumes/${id}`)
       .then((response) => setBook(response.data))
