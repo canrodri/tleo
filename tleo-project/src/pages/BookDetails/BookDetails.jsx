@@ -6,7 +6,9 @@ import Header from "../../components/Header";
 import "../../style/BookDetails.css";
 
 function BookDetails({ id }) {
- 
+  const { id: paramId } = useParams(); 
+  const bookId = id || paramId; 
+
   const [book, setBook] = useState(null);
   const [isRead, setIsRead] = useState(false);
   const [isPending, setIsPending] = useState(false);
@@ -14,19 +16,20 @@ function BookDetails({ id }) {
   const [isAdded, setIsAdded] = useState(false); // Estado para el botón de añadir
 
   useEffect(() => {
-    if(id)
-    axios
-      .get(`https://www.googleapis.com/books/v1/volumes/${id}`)
-      .then((response) => setBook(response.data))
-      .catch((error) => console.error("Error fetching book details:", error));
-  }, [id]);
+    if (bookId) { 
+      axios
+        .get(`https://www.googleapis.com/books/v1/volumes/${bookId}`)
+        .then((response) => setBook(response.data))
+        .catch((error) => console.error("Error fetching book details:", error));
+    }
+  }, [bookId]); 
 
   const handleRating = (value) => setRating(value);
 
   const AddToLibraryList = () => {
-    setIsAdded(true); // Marca el libro como añadido
-    console.log("Libro añadido a la lista:", book.volumeInfo.title);
-    alert(`"${book.volumeInfo.title}" se ha añadido a tu lista!`);
+    setIsAdded(true); 
+    console.log("Libro añadido a la lista:", book?.volumeInfo?.title);
+    alert(`"${book?.volumeInfo?.title}" se ha añadido a tu lista!`);
   };
 
   if (!book) {
@@ -72,8 +75,8 @@ function BookDetails({ id }) {
             </button>
           </div>
 
-            {/* Botón de añadir a lista */}
-            <div className="add-to-library">
+          {/* Botón de añadir a lista */}
+          <div className="add-to-library">
             <button
               className="add-btn"
               onClick={AddToLibraryList}
@@ -96,8 +99,6 @@ function BookDetails({ id }) {
               </span>
             ))}
           </div>
-
-        
         </div>
       </div>
       <Footer />
@@ -106,3 +107,4 @@ function BookDetails({ id }) {
 }
 
 export default BookDetails;
+
